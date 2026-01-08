@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  :root {
+    /* Color Palette */
+    --color-primary: #0a9396; /* Teal/Cyan */
+    --color-secondary: #ee9b00; /* Amber/Orange */
+    --color-accent: #bb3e03; /* Burnt Orange/Terracotta */
+    --color-background: #f8f9fa; /* Light Gray/Off-White */
+    --color-surface: #ffffff; /* Pure White */
+    --color-text-base: #333333; /* Dark Gray */
+    --color-text-muted: #6c757d; /* Medium Gray */
+    --color-success: #4caf50;
+    --color-error: #f44336;
+    --color-warning: #ffc107;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Roboto', 'Arial', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-base);
+    line-height: 1.6;
+    direction: rtl; /* Set default direction to RTL for Arabic context */
+    text-align: right;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-base);
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+  h4 { font-size: 1.5rem; }
+  h5 { font-size: 1.25rem; }
+  h6 { font-size: 1rem; }
+
+  p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+
+  a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+}
+
+/* Component styles (using Tailwind utility classes for structure) */
+@layer components {
+  /* Button Styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 font-semibold transition duration-200 ease-in-out rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 focus:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90 focus:ring-secondary;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1 text-sm;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3 text-lg;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-surface rounded-lg shadow-lg p-6 border border-gray-100 transition duration-300 hover:shadow-xl;
+  }
+
+  /* Form Elements */
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary transition duration-150 ease-in-out;
+  }
+
+  .label-field {
+    @apply block text-sm font-medium text-text-base mb-1;
+  }
+
+  /* Utility Classes for RTL adjustments (if needed beyond default Tailwind) */
+  .text-right {
+    text-align: right;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  /* Custom Scrollbar (optional, for modern browsers) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+}
+
+/* Utility overrides (ensuring custom properties are used) */
+@layer utilities {
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .border-primary {
+    border-color: var(--color-primary);
+  }
+
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+
+  .text-base {
+    color: var(--color-text-base);
+  }
+  .text-muted {
+    color: var(--color-text-muted);
+  }
+
+  .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Custom spacing utilities */
+  .p-xs { padding: var(--spacing-xs); }
+  .m-md { margin: var(--spacing-md); }
+}
